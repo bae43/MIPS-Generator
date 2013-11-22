@@ -52,22 +52,8 @@ def randInt():
 def setReg(reg,val):
     if reg == 0:
         print("SET R0 -> ERROR")
-    elif reg == 1:
-        r[1] = val
-    elif reg == 2:
-        r[2] = val
-    elif reg == 3:
-        r[3] = val
-    elif reg == 4:
-        r[4] = val
-    elif reg == 5:
-        r[5] = val
-    elif reg == 6:
-        r[6] = val
-    elif reg == 7:
-        r[7] = val
-##    elif reg < 8:
-##        rDict[reg].set(val)
+    elif reg >= 1 and reg <= 7:
+        r[reg] = val
     else:
         print("ATTEMPTED SET OF INVALID REGISTER " + str(reg))
     return
@@ -76,22 +62,8 @@ def setReg(reg,val):
 def getReg(reg):
 ##    if reg < 8:
 ##        return rDict[reg].get()
-    if reg == 0:
-        return r[0]
-    elif reg == 1:
-        return r[1]
-    elif reg == 2:
-        return r[2]
-    elif reg == 3:
-        return r[3]
-    elif reg == 4:
-        return r[4]
-    elif reg == 5:
-        return r[5]
-    elif reg == 6:
-        return r[6]
-    elif reg == 7:
-        return r[7]
+    if reg >= 0 and reg <= 7:
+        return r[reg]
     else:
         print("ATTEMPTED GET OF INVALID REGISTER " + str(reg))
         return
@@ -166,8 +138,6 @@ def writeTest(f):
     program(f)
     f.write("\n \n REGISTER VALUES: \n")
     f.write(string_of_regs())
-    
-
 
 def main():
     if len(sys.argv) != 2:
